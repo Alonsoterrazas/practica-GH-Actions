@@ -4,25 +4,27 @@ jobs:
   prepare-code:
     runs-on: ubuntu-latest
     steps:
-    - name: Get code
+      - name: Get code
         uses: actions/checkout@v3
       - name: Install NodeJS
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - name: Install dependencies
       - name: preparing-code
-        run: "npm ci\nnpm lint\nnpm test \nnpm build\n"
+        run: "npm ci\nnpm lint\nnpm test \n"
   Deploy-code:
     needs: prepare-code
     runs-on: ubuntu-latest
     steps:
-    - name: Get code
+      - name: Get code
         uses: actions/checkout@v3
       - name: Install NodeJS
         uses: actions/setup-node@v3
         with:
           node-version: '18'
       - name: Install dependencies
+        run: npm ci
+      - name: Buil proyect
+        run: npm run build
       - name: Deploy code
         run: echo 'Deploying...'
