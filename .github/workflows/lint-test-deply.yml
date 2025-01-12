@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: '18'
       - name: preparing-code
-        run: "npm ci\nnpm lint\nnpm test \n"
+        run: "npm ci\nnpm run lint\nnpm test \n"
   Deploy-code:
     needs: prepare-code
     runs-on: ubuntu-latest
