@@ -1,0 +1,14 @@
+name: Lint, Test, Deploy workflow
+on: push
+jobs:
+  prepare-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: preparing-code
+        run: "npm ci\nnpm lint\nnpm test \nnpm build\n"
+  Deploy-code:
+    needs: preparing-code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy code
+        run: echo 'Deploying...'
