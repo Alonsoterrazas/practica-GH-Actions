@@ -7,7 +7,7 @@ jobs:
       - name: preparing-code
         run: "npm ci\nnpm lint\nnpm test \nnpm build\n"
   Deploy-code:
-    needs: preparing-code
+    needs: prepare-code
     runs-on: ubuntu-latest
     steps:
       - name: Deploy code
